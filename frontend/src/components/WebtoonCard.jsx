@@ -41,14 +41,18 @@ const WebtoonCard = ({
               <h3 className="font-semibold text-gray-900 text-lg mb-2 truncate">
                 {webtoon.name}
               </h3>
-              <div className="flex items-center gap-3 text-sm text-gray-500 mb-3">
-                <Badge className={statusColors[webtoon.status] || statusColors.ongoing}>
-                  {webtoon.status}
-                </Badge>
-                <span className="px-2 py-1 bg-gray-100 rounded-full font-medium">
-                  {webtoon.genre}
-                </span>
-                <span className="text-xs">Last: {new Date(webtoon.lastRead).toLocaleDateString()}</span>
+              <div className="space-y-2 mb-3">
+                <div className="flex items-center gap-2 flex-wrap">
+                  <Badge className={statusColors[webtoon.status] || statusColors.ongoing}>
+                    {webtoon.status}
+                  </Badge>
+                  <span className="px-2 py-1 bg-gray-100 rounded-full font-medium text-xs">
+                    {webtoon.genre}
+                  </span>
+                </div>
+                <div className="text-xs text-gray-500">
+                  Last: {new Date(webtoon.lastRead).toLocaleDateString()}
+                </div>
               </div>
             </div>
             
