@@ -139,33 +139,6 @@ const AddWebtoonDialog = ({ onAddWebtoon, isOpen, onOpenChange }) => {
             />
           </div>
 
-          <div className="space-y-2">
-            <Label htmlFor="cover" className="text-sm font-medium text-gray-700">
-              Cover Image URL
-            </Label>
-            <Input
-              id="cover"
-              type="url"
-              value={formData.cover}
-              onChange={(e) => handleInputChange('cover', e.target.value)}
-              placeholder="https://example.com/cover.jpg"
-              className="border-gray-300 focus:border-gray-500"
-            />
-          </div>
-
-          <div className="space-y-2">
-            <Label htmlFor="description" className="text-sm font-medium text-gray-700">
-              Description
-            </Label>
-            <Textarea
-              id="description"
-              value={formData.description}
-              onChange={(e) => handleInputChange('description', e.target.value)}
-              placeholder="Brief description of the webtoon..."
-              className="border-gray-300 focus:border-gray-500 min-h-[80px]"
-            />
-          </div>
-
           <div className="flex justify-end gap-3 pt-4">
             <Button 
               type="button" 
