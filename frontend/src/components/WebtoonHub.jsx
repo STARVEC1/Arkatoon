@@ -209,6 +209,17 @@ const WebtoonHub = () => {
             </div>
           </div>
           <div className="flex gap-3">
+            <Select value={sortBy} onValueChange={setSortBy}>
+              <SelectTrigger className="w-44 border-gray-300 focus:border-gray-500 bg-white">
+                <SelectValue placeholder="Trier par" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="name">Nom (A-Z)</SelectItem>
+                <SelectItem value="lastRead">Date récente</SelectItem>
+                <SelectItem value="chapter">Chapitre (↑)</SelectItem>
+                <SelectItem value="nouveaute">🆕 Nouveautés</SelectItem>
+              </SelectContent>
+            </Select>
             <Select value={statusFilter} onValueChange={setStatusFilter}>
               <SelectTrigger className="w-40 border-gray-300 focus:border-gray-500 bg-white">
                 <SelectValue placeholder="Status" />
