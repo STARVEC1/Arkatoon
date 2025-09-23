@@ -38,7 +38,7 @@ const WebtoonCard = ({
           {/* Header with name and actions */}
           <div className="flex items-start justify-between mb-3">
             <div className="flex-1 min-w-0">
-              <h3 className="font-semibold text-gray-900 text-lg mb-2 truncate">
+              <h3 className="font-semibold text-gray-900 text-base mb-2 truncate">
                 {webtoon.name}
               </h3>
               <div className="space-y-2 mb-3">
