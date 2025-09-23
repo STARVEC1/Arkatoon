@@ -1,3 +1,10 @@
+// Helper to get date N days ago
+const getDaysAgo = (days) => {
+  const date = new Date();
+  date.setDate(date.getDate() - days);
+  return date.toISOString().split('T')[0];
+};
+
 export const mockWebtoons = [
   {
     id: "1",
@@ -6,7 +13,7 @@ export const mockWebtoons = [
     url: "https://www.webtoons.com/en/fantasy/tower-of-god/list?title_no=95",
     status: "ongoing",
     genre: "Fantasy",
-    lastRead: "2024-09-15"
+    lastRead: getDaysAgo(2) // 2 days ago - should show NEW tag
   },
   {
     id: "2", 
@@ -15,7 +22,7 @@ export const mockWebtoons = [
     url: "https://www.webtoons.com/en/action/solo-leveling/list?title_no=4086",
     status: "completed",
     genre: "Action",
-    lastRead: "2024-09-14"
+    lastRead: getDaysAgo(1) // 1 day ago but completed - no NEW tag
   },
   {
     id: "3",
@@ -24,7 +31,7 @@ export const mockWebtoons = [
     url: "https://tapas.io/series/tbate-comic/info",
     status: "ongoing",
     genre: "Fantasy",
-    lastRead: "2024-09-13"
+    lastRead: getDaysAgo(5) // 5 days ago - should show NEW tag
   },
   {
     id: "4",
@@ -33,7 +40,7 @@ export const mockWebtoons = [
     url: "https://www.webtoons.com/en/action/omniscient-reader/list?title_no=2154",
     status: "ongoing", 
     genre: "Action",
-    lastRead: "2024-09-12"
+    lastRead: getDaysAgo(15) // 15 days ago - no NEW tag
   },
   {
     id: "5",
@@ -42,7 +49,7 @@ export const mockWebtoons = [
     url: "https://www.webtoons.com/en/drama/lookism/list?title_no=1049",
     status: "ongoing",
     genre: "Drama", 
-    lastRead: "2024-09-11"
+    lastRead: getDaysAgo(0) // Today - should show NEW tag
   },
   {
     id: "6",
@@ -51,7 +58,7 @@ export const mockWebtoons = [
     url: "https://www.webtoons.com/en/super-hero/unordinary/list?title_no=679",
     status: "ongoing",
     genre: "Super Hero",
-    lastRead: "2024-09-10"
+    lastRead: getDaysAgo(20) // 20 days ago - no NEW tag
   }
 ];
 
