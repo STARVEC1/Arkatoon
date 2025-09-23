@@ -32,8 +32,8 @@ const WebtoonCard = ({
   };
 
   return (
-    <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-white border-gray-200">
-      <CardContent className="p-4">
+    <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-white border-gray-200 min-h-[180px]">
+      <CardContent className="p-5">
         <div className="relative">
           {/* Header with name and actions */}
           <div className="flex items-start justify-between mb-3">
