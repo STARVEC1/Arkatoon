@@ -46,9 +46,16 @@ const WebtoonCard = ({
           {/* Header with name and actions */}
           <div className="flex items-start justify-between mb-3">
             <div className="flex-1 min-w-0">
-              <h3 className="font-semibold text-gray-900 text-base mb-2 truncate">
-                {webtoon.name}
-              </h3>
+              <div className="flex items-center gap-2 mb-2">
+                <h3 className="font-semibold text-gray-900 text-base truncate flex-1">
+                  {webtoon.name}
+                </h3>
+                {isWebtoonNew(webtoon) && (
+                  <Badge className="bg-red-100 text-red-800 border-red-200 text-xs px-2 py-0.5 animate-pulse">
+                    🆕 NEW
+                  </Badge>
+                )}
+              </div>
               <div className="space-y-2 mb-3">
                 <div className="flex items-center gap-2 flex-wrap">
                   <Badge className={statusColors[webtoon.status] || statusColors.ongoing}>
