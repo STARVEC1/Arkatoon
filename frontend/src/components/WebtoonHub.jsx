@@ -24,14 +24,23 @@ const WebtoonHub = () => {
     loadWebtoons();
   }, []);
 
-  // Filter webtoons when search or filters change
+  // Helper function to check if webtoon is new (within 7 days and ongoing)
+  const isWebtoonNew = (webtoon) => {
+    if (webtoon.status !== 'ongoing') return false;
+    const lastReadDate = new Date(webtoon.lastRead);
+    const today = new Date();
+    const daysDiff = Math.floor((today - lastReadDate) / (1000 * 60 * 60 * 24));
+    return daysDiff <= 7;
+  };
+
+  // Filter and sort webtoons when search, filters, or sort change
   useEffect(() => {
     let filtered = webtoons;
 
     if (searchQuery) {
       filtered = filtered.filter(webtoon =>
         webtoon.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        webtoon.description.toLowerCase().includes(searchQuery.toLowerCase())
+        (webtoon.description && webtoon.description.toLowerCase().includes(searchQuery.toLowerCase()))
       );
     }
 
@@ -43,8 +52,28 @@ const WebtoonHub = () => {
       filtered = filtered.filter(webtoon => webtoon.genre === genreFilter);
     }
 
+    // Apply sorting
+    filtered.sort((a, b) => {
+      switch (sortBy) {
+        case 'name':
+          return a.name.localeCompare(b.name);
+        case 'lastRead':
+          return new Date(b.lastRead) - new Date(a.lastRead);
+        case 'chapter':
+          return b.currentChapter - a.currentChapter;
+        case 'nouveaute':
+          const aIsNew = isWebtoonNew(a);
+          const bIsNew = isWebtoonNew(b);
+          if (aIsNew && !bIsNew) return -1;
+          if (!aIsNew && bIsNew) return 1;
+          return new Date(b.lastRead) - new Date(a.lastRead);
+        default:
+          return 0;
+      }
+    });
+
     setFilteredWebtoons(filtered);
-  }, [webtoons, searchQuery, statusFilter, genreFilter]);
+  }, [webtoons, searchQuery, statusFilter, genreFilter, sortBy]);
 
   const loadWebtoons = async () => {
     try {
