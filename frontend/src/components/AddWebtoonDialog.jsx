@@ -33,10 +33,8 @@ const AddWebtoonDialog = ({ onAddWebtoon, isOpen, onOpenChange }) => {
         name: '',
         url: '',
         currentChapter: 0,
-        description: '',
         genre: '',
-        status: 'ongoing',
-        cover: ''
+        status: 'ongoing'
       });
       onOpenChange(false);
     }
