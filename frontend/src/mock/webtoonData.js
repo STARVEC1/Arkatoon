@@ -13,7 +13,7 @@ export const mockWebtoons = [
     url: "https://www.webtoons.com/en/fantasy/tower-of-god/list?title_no=95",
     status: "ongoing",
     genre: "Fantasy",
-    lastRead: getDaysAgo(2) // 2 days ago - should show NEW tag
+    lastRead: getDaysAgo(8) // 8 days ago - should show NEW tag (needs update)
   },
   {
     id: "2", 
@@ -22,7 +22,7 @@ export const mockWebtoons = [
     url: "https://www.webtoons.com/en/action/solo-leveling/list?title_no=4086",
     status: "completed",
     genre: "Action",
-    lastRead: getDaysAgo(1) // 1 day ago but completed - no NEW tag
+    lastRead: getDaysAgo(10) // 10 days ago but completed - no NEW tag
   },
   {
     id: "3",
@@ -31,7 +31,7 @@ export const mockWebtoons = [
     url: "https://tapas.io/series/tbate-comic/info",
     status: "ongoing",
     genre: "Fantasy",
-    lastRead: getDaysAgo(5) // 5 days ago - should show NEW tag
+    lastRead: getDaysAgo(3) // 3 days ago - no NEW tag (too recent)
   },
   {
     id: "4",
@@ -40,7 +40,7 @@ export const mockWebtoons = [
     url: "https://www.webtoons.com/en/action/omniscient-reader/list?title_no=2154",
     status: "ongoing", 
     genre: "Action",
-    lastRead: getDaysAgo(15) // 15 days ago - no NEW tag
+    lastRead: getDaysAgo(7) // Exactly 7 days ago - should show NEW tag
   },
   {
     id: "5",
@@ -49,7 +49,7 @@ export const mockWebtoons = [
     url: "https://www.webtoons.com/en/drama/lookism/list?title_no=1049",
     status: "ongoing",
     genre: "Drama", 
-    lastRead: getDaysAgo(0) // Today - should show NEW tag
+    lastRead: getDaysAgo(1) // 1 day ago - no NEW tag (too recent)
   },
   {
     id: "6",
@@ -58,7 +58,7 @@ export const mockWebtoons = [
     url: "https://www.webtoons.com/en/super-hero/unordinary/list?title_no=679",
     status: "ongoing",
     genre: "Super Hero",
-    lastRead: getDaysAgo(20) // 20 days ago - no NEW tag
+    lastRead: getDaysAgo(14) // 14 days ago - should show NEW tag (definitely needs update)
   }
 ];
 
