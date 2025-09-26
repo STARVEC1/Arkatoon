@@ -24,13 +24,23 @@ const WebtoonHub = () => {
     loadWebtoons();
   }, []);
 
-  // Helper function to check if webtoon needs update (7+ days without update and ongoing)
-  const isWebtoonNew = (webtoon) => {
+  // Helper function to check if webtoon is on author break (42+ days without update and ongoing)
+  const isWebtoonOnBreak = (webtoon) => {
     if (webtoon.status !== 'ongoing') return false;
     const lastReadDate = new Date(webtoon.lastRead);
     const today = new Date();
     const daysDiff = Math.floor((today - lastReadDate) / (1000 * 60 * 60 * 24));
-    return daysDiff >= 7; // 7 days or more = should have new chapter
+    return daysDiff >= 42; // 6 weeks or more = author break
+  };
+
+  // Helper function to check if webtoon needs update (7+ days without update, ongoing, and not on break)
+  const isWebtoonNew = (webtoon) => {
+    if (webtoon.status !== 'ongoing') return false;
+    if (isWebtoonOnBreak(webtoon)) return false; // No NEW tag if on break
+    const lastReadDate = new Date(webtoon.lastRead);
+    const today = new Date();
+    const daysDiff = Math.floor((today - lastReadDate) / (1000 * 60 * 60 * 24));
+    return daysDiff >= 7 && daysDiff < 42; // 7-41 days = should have new chapter
   };
 
   // Filter and sort webtoons when search, filters, or sort change
