@@ -11,13 +11,13 @@ const WebtoonCard = ({
   onEdit,
   onDelete 
 }) => {
-  // Helper function to check if webtoon is new (within 7 days and ongoing)
+  // Helper function to check if webtoon needs update (7+ days without update and ongoing)
   const isWebtoonNew = (webtoon) => {
     if (webtoon.status !== 'ongoing') return false;
     const lastReadDate = new Date(webtoon.lastRead);
     const today = new Date();
     const daysDiff = Math.floor((today - lastReadDate) / (1000 * 60 * 60 * 24));
-    return daysDiff <= 7;
+    return daysDiff >= 7; // 7 days or more = should have new chapter
   };
   const handleChapterDecrease = () => {
     if (webtoon.currentChapter > 0) {
