@@ -13,7 +13,7 @@ export const mockWebtoons = [
     url: "https://www.webtoons.com/en/fantasy/tower-of-god/list?title_no=95",
     status: "ongoing",
     genre: "Fantasy",
-    lastRead: getDaysAgo(8) // 8 days ago - should show NEW tag (needs update)
+    lastRead: getDaysAgo(8) // 8 days ago - no NEW tag (past the 7-day mark)
   },
   {
     id: "2", 
