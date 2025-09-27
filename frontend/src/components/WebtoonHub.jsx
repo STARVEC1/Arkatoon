@@ -33,14 +33,15 @@ const WebtoonHub = () => {
     return daysDiff >= 42; // 6 weeks or more = author break
   };
 
-  // Helper function to check if webtoon needs update (exactly 7 days without update)
+  // Helper function to check if webtoon needs update (7+ days without update, stays until updated)
   const isWebtoonNew = (webtoon) => {
-    if (webtoon.status !== 'ongoing') return false;
-    if (isWebtoonOnBreak(webtoon)) return false; // No NEW tag if on break
+    if (webtoon.status !== 'ongoing') return false; // Only show on ongoing webtoons
+    if (webtoon.status === 'paused') return false; // Never show on paused webtoons
+    if (isWebtoonOnBreak(webtoon)) return false; // No NEW tag if on break (42+ days)
     const lastReadDate = new Date(webtoon.lastRead);
     const today = new Date();
     const daysDiff = Math.floor((today - lastReadDate) / (1000 * 60 * 60 * 24));
-    return daysDiff === 7; // Exactly 7 days = show NEW tag
+    return daysDiff >= 7; // 7+ days = show NEW tag (stays until webtoon is updated)
   };
 
   // Filter and sort webtoons when search, filters, or sort change
