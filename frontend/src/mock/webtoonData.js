@@ -20,9 +20,9 @@ export const mockWebtoons = [
     name: "Solo Leveling",
     currentChapter: 200,
     url: "https://www.webtoons.com/en/action/solo-leveling/list?title_no=4086",
-    status: "completed",
+    status: "ongoing",
     genre: "Action",
-    lastRead: getDaysAgo(10) // 10 days ago but completed - no NEW tag
+    lastRead: getDaysAgo(10) // 10 days ago and ongoing - should show NEW tag
   },
   {
     id: "3",
