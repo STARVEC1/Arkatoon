@@ -40,10 +40,6 @@ const WebtoonHub = () => {
     const lastReadDate = new Date(webtoon.lastRead);
     const today = new Date();
     const daysDiff = Math.floor((today - lastReadDate) / (1000 * 60 * 60 * 24));
-    
-    // Debug logging
-    console.log(`${webtoon.name}: Last read ${webtoon.lastRead}, Days diff: ${daysDiff}, Status: ${webtoon.status}`);
-    
     return daysDiff === 7; // Exactly 7 days = show NEW tag
   };
 
