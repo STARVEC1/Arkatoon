@@ -58,7 +58,7 @@ export const mockWebtoons = [
     url: "https://www.webtoons.com/en/super-hero/unordinary/list?title_no=679",
     status: "ongoing",
     genre: "Super Hero",
-    lastRead: getDaysAgo(14) // 14 days ago - should show NEW tag (definitely needs update)
+    lastRead: getDaysAgo(7) // Exactly 7 days ago - should show NEW tag
   }
 ];
 
