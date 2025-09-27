@@ -47,9 +47,9 @@ export const mockWebtoons = [
     name: "Lookism",
     currentChapter: 475,
     url: "https://www.webtoons.com/en/drama/lookism/list?title_no=1049",
-    status: "ongoing",
+    status: "paused",
     genre: "Drama", 
-    lastRead: getDaysAgo(1) // 1 day ago - no NEW tag (too recent)
+    lastRead: getDaysAgo(10) // 10 days ago but paused - no NEW tag
   },
   {
     id: "6",
